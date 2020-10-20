@@ -1,0 +1,22 @@
+using System;
+using System.Threading;
+
+namespace FunctionMethod
+{
+    class Program
+    {
+        static void Main()
+        {
+            
+            Console.WriteLine("Введите значение x");
+            
+            var x = double.Parse(Console.ReadLine());
+            
+
+            var y = ("x");
+
+            Console.WriteLine("f(x) = " + Math.Abs(x+ Math.Abs(x+ Math.Abs(x+Math.Sqrt(x+1)))));
+            Console.ReadKey();
+        }
+    }
+}
