@@ -1,0 +1,32 @@
+using System;
+
+namespace Task04
+{
+    class Program
+    {
+        static void Main()
+        {
+            var x = GetValue();
+
+            Console.WriteLine("x = " + x);
+
+            Console.ReadKey();
+        }
+
+        static double GetValue()
+        {
+            return F(2, 3, -2) + F(3, 5, -3) + F(5, 7, -5);
+        }
+
+        /// <summary>
+        /// Вычисление повторяющегося выражения
+        /// </summary>
+        /// <param name="a">1 число числителя</param>
+        /// <param name="с">степень числа 2,7</param>
+        /// <param name="b">Знаменатель дроби</param>
+        /// <returns></returns>
+        static double F(double a, double b, double c)
+        {
+            return Math.Sqrt((a+ Math.Pow(2.7, c)) / b);
+        }
+    }
