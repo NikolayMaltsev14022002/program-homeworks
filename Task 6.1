@@ -1,0 +1,39 @@
+using System;
+
+
+namespace Task6_1
+{
+    class Program1
+    {
+        static void Main(string[] args)
+        {
+            var a = GetNumber("k");
+            var b = GetNumber("m");
+            var c = GetNumber("n");
+
+            string answer = "Да.";
+
+            if (EvaluateLogicalExpression(a, b, c))
+                answer = "Нет.";
+
+            Console.WriteLine("Верно ли, что все числа k, m, или n делится на 3? " +
+                answer);
+
+            Console.ReadKey();
+        }
+
+        static bool EvaluateLogicalExpression(int k, int m, int n)
+        {
+            return k % 3!=0 || m % 3!=0 || n % 3!=0;
+            
+        }
+
+        
+
+        static int GetNumber(string numberName)
+        {
+            Console.WriteLine("Введите число " + numberName);
+            return int.Parse(Console.ReadLine());
+        }
+    }
+}
