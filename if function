@@ -1,0 +1,28 @@
+using System;
+
+namespace iffunctions
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine("Введите число x");
+            var x = double.Parse(Console.ReadLine());
+
+ if  (x > 1)  ;
+            var F = Math.Log10(x);
+            { Console.WriteLine("F(x)=ln"); }
+            { Console.WriteLine(F); }
+            if (0 < x || x <= 1) ;
+            var F1 = -Math.Log10(x);
+            { Console.WriteLine("F(x)=-ln"); }
+            { Console.WriteLine(F1); }
+
+
+            if (x <= 0) ;
+            { Console.WriteLine("F(x)=0"); }
+
+            Console.ReadKey();
+        }
+    }
+}
