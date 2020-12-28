@@ -1,0 +1,99 @@
+using System;
+
+namespace зачет
+
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(" Введите внесенную в автомат сумму (натуральное число)");
+
+            int a = new int();
+
+            while (true)
+            {
+                var UserNumber = (Console.ReadLine());
+
+                if (!int.TryParse(UserNumber, out a) || !(int.Parse(UserNumber) > 0))
+                {
+                    Console.WriteLine("Неверно введена сумма\a");
+                    continue;
+                }
+                else
+                {
+                    a = int.Parse(UserNumber);
+                    Console.WriteLine("Введите стоимость товара (натуральное число)");
+                    int b = new int();
+                    while (true)
+                    {
+                        var Price = (Console.ReadLine());
+
+                        if (!int.TryParse(Price, out b) || !(int.Parse(Price) > 0))
+                        {
+                            Console.WriteLine("Неверно введена цена товара\b");
+                            continue;
+                        }
+                        else if (int.Parse(Price) > int.Parse(UserNumber))
+                        {
+                            Console.WriteLine("Недостаточно средств. Выберите товар подешевле");
+                            continue;
+                        }
+                        else
+                        {
+                            b = int.Parse(Price);
+                            a = int.Parse(UserNumber);
+                            break;
+                        }
+                    }
+                    Main(b, a);
+                    break;
+                }
+            }
+        }
+
+        static void Main(int ThePrice, int TheSum)
+        {
+            int[] NumberOfCoins = { 0, 0, 0, 0 };
+            string[] WordNumber = { "Десяток - ", "Пятерок - ", "Двоек - ", "Единиц - " };
+
+            int TotalRemains = TheSum - ThePrice;
+
+            while (TotalRemains >= 10)
+            {
+                TotalRemains -= 10;
+                NumberOfCoins[0] += 1;
+            }
+            while (TotalRemains >= 5)
+            {
+                TotalRemains -= 5;
+                NumberOfCoins[1] += 1;
+            }
+            while (TotalRemains >= 2)
+            {
+                TotalRemains -= 2;
+                NumberOfCoins[2] += 1;
+            }
+            if (TotalRemains == 1)
+            {
+                TotalRemains -= 1;
+                NumberOfCoins[3] += 1;
+            }
+
+            bool Both = false;
+            Console.WriteLine("Сдача:");
+            for (int i = 0; i < 4; i++)
+            {
+                if (NumberOfCoins[i] != 0)
+                {
+                    Console.WriteLine($"{WordNumber[i]}{NumberOfCoins[i]}");
+                    Both = true;
+                }
+            }
+            if (Both == false)
+            {
+                Console.WriteLine("Сдачи нет");
+            }
+        }
+    }
+}
